@@ -1,6 +1,6 @@
 <template>
   <SocialButton
-      link="mailto:me@audreyoneilart.ca"
+      link="mailto:me@audreyoneil.ca"
       buttonClass="email"
       :icon="[ 'fas', 'envelope' ]"
       label="email"
