@@ -46,7 +46,7 @@ main {
 /* On desktop info-card should be gradient */
 @media (max-width: 1024px) {
   main {
-    background-image: url("src/assets/audrey.webp");
+    background-image: url("@/assets/audrey.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -71,7 +71,7 @@ main {
 
 
 .audrey-image {
-  background-image: url("src/assets/audrey.webp");
+  background-image: url("@/assets/audrey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
