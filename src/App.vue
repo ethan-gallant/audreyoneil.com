@@ -40,7 +40,19 @@ main {
 }
 
 #info-card {
-  background: linear-gradient(to left, #da4453, #89216b);
+  background-image: linear-gradient(to left, rgb(155, 31, 43), rgb(110, 26, 86));
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Tint the card */
+#info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* On desktop info-card should be gradient */

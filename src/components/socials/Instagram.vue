@@ -13,11 +13,10 @@ import SocialButton from './SocialButton.vue';
 
 <style scoped lang="scss">
 .instagram {
-  color: #c71e7e;
-  background-color: #fff;
+  color: rgb(227, 71, 160);
 
   &:hover {
-    background: linear-gradient(to right, #ff3019 0%, #c90477 100%);
+    background-image: linear-gradient(to right, rgb(189, 19, 0) 0%, rgb(161, 3, 95) 100%);
   }
 }
 </style>

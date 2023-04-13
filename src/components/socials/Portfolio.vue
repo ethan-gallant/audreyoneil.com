@@ -14,11 +14,11 @@ import SocialButton from './SocialButton.vue';
 
 <style scoped lang="scss">
 .portfolio {
-  color: #1F2C56;
-  background-color: #fff;
+  color: rgb(166, 192, 223);
+  background-color: rgb(24, 26, 27);;
 
   &:hover {
-    background: linear-gradient(to right, #45B649, #DCE35B);
+    background: linear-gradient(to right, rgb(55, 146, 58), rgb(103, 106, 18));
    }
 }
 </style>

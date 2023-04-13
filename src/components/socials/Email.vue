@@ -13,11 +13,10 @@ import SocialButton from './SocialButton.vue';
 
 <style scoped lang="scss">
 .email {
-  color: #F5A962;
-  background-color: #fff;
-
+  color: rgb(245, 169, 97);;
+  background-color: rgb(24, 26, 27);;
   &:hover {
-    background: linear-gradient(to right, #FC5185, #F5A962);
+    background-image: linear-gradient(to right, rgb(155, 3, 49), rgb(142, 73, 9));
   }
 }
 </style>

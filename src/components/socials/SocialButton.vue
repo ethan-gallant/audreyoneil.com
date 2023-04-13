@@ -71,8 +71,8 @@ const onMouseOut = () => {
 /* Common styles go here */
 .btn {
   min-width: 110px;
-  background-color: #fff;
   padding: 1rem 4rem;
+  background-color: rgb(24, 26, 27);
   text-decoration: none;
   display: flex;
   transition: all 0.2s ease-in-out;
