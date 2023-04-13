@@ -5,9 +5,9 @@ import './assets/main.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faEnvelope, faBriefcase, faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faBriefcase, faUserSecret, faImages } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-library.add(faEnvelope, faBriefcase, faInstagram, faUserSecret)
+library.add(faEnvelope, faBriefcase, faInstagram, faUserSecret,faImages)
 
 
 createApp(App)

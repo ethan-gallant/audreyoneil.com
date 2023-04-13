@@ -3,7 +3,7 @@
   <SocialButton
       link="https://www.instagram.com/audreyoneilart/"
       buttonClass="portfolio"
-      icon="fas fa-images"
+      :icon="['fas', 'fa-images']"
       label="portfolio"
   />
 </template>
