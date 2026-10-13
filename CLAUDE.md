@@ -6,7 +6,7 @@ Artist website for Audrey O'Neil (ceramic artist). **Astro** static site (no UI 
 - Preview while editing: `npm run dev` (Astro, port 8022, live reload). To test the contact form locally use `npm run preview` (wrangler dev; emails are written to `.wrangler/tmp/email/`, not sent).
 - Put live: `npm run deploy` (= `scripts/deploy.sh`: build + `wrangler deploy`). Uses the token in `~/.config/cloudflare/` (account "Cloud Weave - Ethan Gallant"). If that fails, ask Audrey to run `npx wrangler login` in Ghostty from this folder — Claude can't do the browser login.
 - Also commit + push to `main` on GitHub (ethan-gallant/audreyoneil.com) for history. Pushing does NOT deploy.
-- Live since 2026-10-12: audreyoneil.com + www are Worker custom domains (old GitHub Pages A/AAAA/CNAME records deleted, Pages disabled). Worker name `audreyoneil-com`; config in `wrangler.jsonc`. Zone `audreyoneil.com` id ee211e6b854c34443786496215f16476.
+- Live since 2026-10-12: audreyoneil.com + www are Worker custom domains (old GitHub Pages A/AAAA/CNAME records deleted, Pages disabled). Zone settings: Always Use HTTPS + Automatic HTTPS Rewrites on. Worker name `audreyoneil-com`; config in `wrangler.jsonc`. Zone `audreyoneil.com` id ee211e6b854c34443786496215f16476.
 
 ## Email
 - Audrey's inbox me@audreyoneil.com is **Google Workspace** (Google MX on the apex) — never touch apex MX/SPF.
