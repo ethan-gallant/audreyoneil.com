@@ -6,8 +6,8 @@
   --muted: #a9a49c;
   --accent: #ff4fa3;       /* hot pink — buttons and highlights */
   --logo-font: 'Barlow Condensed', 'DIN Condensed', sans-serif; /* closest match to the name in the logo */
-  --heading-font: 'Cormorant Garamond', Georgia, serif;
-  --body-font: 'Jost', system-ui, sans-serif;
+  --heading-font: var(--logo-font);
+  --body-font: var(--logo-font);
 }
 
 * { box-sizing: border-box; }
@@ -21,11 +21,13 @@ body {
   color: var(--text);
   font-family: var(--body-font);
   font-weight: 300;
-  line-height: 1.7;
+  font-size: 1.15rem;
+  letter-spacing: .02em;
+  line-height: 1.6;
 }
 a { color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
-h1, h2 { font-family: var(--heading-font); font-weight: 400; letter-spacing: .02em; line-height: 1.2; }
+h1, h2 { font-family: var(--heading-font); font-weight: 300; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2; }
 h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 1.5rem; }
 
 .site-header {
