@@ -5,9 +5,11 @@
 const home = import.meta.glob('./my-site/home/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG}', { eager: true });
 const portfolio = import.meta.glob('./my-site/portfolio/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG}', { eager: true });
 
-// "02-blue_moon-vase" → "Blue moon vase"
+// "02-blue_moon-vase" → "Blue moon vase", "01-2025" → "2025". Plain numbers like "07.jpg" get no caption.
 const tidy = (name) => {
-  const words = name.replace(/\.[^.]+$/, '').replace(/^\d+[-_ .]*/, '').replace(/[-_]+/g, ' ').trim();
+  const base = name.replace(/\.[^.]+$/, '');
+  if (/^\d+$/.test(base) && name.includes('.')) return '';
+  const words = base.replace(/^\d+[-_ .]+(?=\S)/, '').replace(/[-_]+/g, ' ').trim();
   return words.charAt(0).toUpperCase() + words.slice(1);
 };
 

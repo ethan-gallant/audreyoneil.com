@@ -7,9 +7,9 @@ const { images } = Astro.props;
   {images.map((img) => (
     <figure>
       <a href={img.src.src} class="zoom">
-        <Image src={img.src} alt={img.caption} widths={[400, 800]} sizes="(max-width: 600px) 100vw, 33vw" />
+        <Image src={img.src} alt={img.caption || "Artwork by Audrey O'Neil"} widths={[400, 800]} sizes="(max-width: 600px) 100vw, 33vw" />
       </a>
-      <figcaption>{img.caption}</figcaption>
+      {img.caption && <figcaption>{img.caption}</figcaption>}
     </figure>
   ))}
 </div>
