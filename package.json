@@ -1,24 +1,18 @@
 {
-  "name": "aosite",
-  "version": "0.0.0",
+  "name": "audreyoneil-com",
   "private": true,
   "scripts": {
-    "dev": "vite --port 8022",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "astro dev --port 8022",
+    "build": "astro build",
+    "preview": "npm run build && wrangler dev --port 8022",
+    "deploy": "sh scripts/deploy.sh"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-brands-svg-icons": "^6.4.0",
-    "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/vue-fontawesome": "^3.0.3",
-    "vue": "^3.2.47"
+    "astro": "^5.18.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "sass": "^1.61.0",
-    "sass-loader": "^13.2.2",
-    "vite": "^4.1.4"
-  }
+    "@cloudflare/workers-types": "^5.20261012.1",
+    "wrangler": "^4.149.0"
+  },
+  "type": "module"
 }

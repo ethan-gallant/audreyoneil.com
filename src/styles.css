@@ -1,0 +1,67 @@
+/* Colours and fonts for the whole site */
+:root {
+  --background: #222222;   /* same charcoal as the logo */
+  --surface: #2b2b2b;
+  --text: #e9e4dc;
+  --muted: #a9a49c;
+  --accent: #f5a961;       /* warm peach from the old email button */
+  --heading-font: 'Cormorant Garamond', Georgia, serif;
+  --body-font: 'Jost', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--body-font);
+  font-weight: 300;
+  line-height: 1.7;
+}
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2 { font-family: var(--heading-font); font-weight: 400; letter-spacing: .02em; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 1.5rem; }
+
+.site-header {
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem;
+  align-items: center; justify-content: space-between;
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
+  border-bottom: 1px solid #333;
+}
+.brand { font-family: var(--heading-font); font-size: 1.5rem; text-decoration: none; letter-spacing: .04em; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.site-header nav a {
+  text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem;
+  color: var(--muted); padding: .25rem 0; border-bottom: 1px solid transparent;
+}
+.site-header nav a:hover, .site-header nav a[aria-current] { color: var(--text); border-color: var(--accent); }
+
+main { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem); }
+
+.site-footer {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem;
+  padding: 2rem 1rem; border-top: 1px solid #333; font-size: .95rem;
+}
+.site-footer a { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+.site-footer svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.site-footer svg .dot { fill: currentColor; stroke: none; }
+
+.button {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .8rem 1.8rem; border: 1px solid var(--accent); border-radius: 999px;
+  color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem;
+  background: none; font-family: inherit; cursor: pointer;
+}
+.button:hover { background: var(--accent); color: var(--background); }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 1.25rem; }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+.gallery figcaption { color: var(--muted); font-size: .9rem; margin-top: .4rem; }
+.empty { color: var(--muted); font-style: italic; }

@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { Content } from '../content/bio.md';
+---
+<Base title="Biography">
+  <h1>Biography</h1>
+  <div class="bio"><Content /></div>
+</Base>
+
+<style>
+  .bio { max-width: 42rem; font-size: 1.1rem; }
+</style>

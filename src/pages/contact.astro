@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.js';
+---
+<Base title="Contact">
+  <h1>Contact</h1>
+  <p id="sent" class="notice" hidden>Thank you — your message has been sent. I'll get back to you soon.</p>
+  <p id="failed" class="notice" hidden>Sorry, something went wrong. Please email me directly at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+
+  <form method="post" action="/api/contact">
+    <label>Your name <input name="name" required maxlength="200" autocomplete="name" /></label>
+    <label>Your email <input name="email" type="email" required maxlength="200" autocomplete="email" /></label>
+    <label>Message <textarea name="message" required rows="7" maxlength="5000"></textarea></label>
+    <label class="trap" aria-hidden="true">Leave empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+    <button class="button" type="submit">Send message</button>
+  </form>
+</Base>
+
+<style>
+  form { display: grid; gap: 1.25rem; max-width: 36rem; }
+  label { display: grid; gap: .4rem; color: var(--muted); font-size: .9rem; letter-spacing: .05em; }
+  input, textarea {
+    font: inherit; font-size: 1rem; color: var(--text); background: var(--surface);
+    border: 1px solid #3a3a3a; border-radius: 4px; padding: .75rem;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  .button { justify-self: start; }
+  .trap { position: absolute; left: -9999px; }
+  .notice { border-left: 3px solid var(--accent); padding: .5rem 1rem; background: var(--surface); }
+</style>
+
+<script>
+  const status = new URLSearchParams(location.search).get('status');
+  if (status) document.getElementById(status)?.removeAttribute('hidden');
+</script>
