@@ -5,13 +5,14 @@ import { site } from '../site.js';
 <Base title="Contact">
   <h1>Contact</h1>
   <p id="sent" class="notice" hidden>Thank you — your message has been sent. I'll get back to you soon.</p>
-  <p id="failed" class="notice" hidden>Sorry, something went wrong. Please email me directly at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  <p id="failed" class="notice" hidden>Sorry, that didn't send — please check every box is filled in and try again, or email me directly at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
 
   <form method="post" action="/api/contact">
     <label>Your name <input name="name" required maxlength="200" autocomplete="name" /></label>
     <label>Your email <input name="email" type="email" required maxlength="200" autocomplete="email" /></label>
     <label>Message <textarea name="message" required rows="7" maxlength="5000"></textarea></label>
     <label class="trap" aria-hidden="true">Leave empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFVGBV_zaifEd9wR" data-theme="dark"></div>
     <button class="button" type="submit">Send message</button>
   </form>
 </Base>
@@ -28,6 +29,8 @@ import { site } from '../site.js';
   .trap { position: absolute; left: -9999px; }
   .notice { border-left: 3px solid var(--accent); padding: .5rem 1rem; background: var(--surface); }
 </style>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
   const status = new URLSearchParams(location.search).get('status');

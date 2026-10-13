@@ -20,6 +20,7 @@ async function contact(request, env) {
 
   // Bots fill in the hidden "website" field; pretend it worked.
   if (field('website', 200)) return back('sent');
+  if (!(await humanCheck(form.get('cf-turnstile-response'), request, env))) return back('failed');
   if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return back('failed');
 
   const escape = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -37,4 +38,16 @@ async function contact(request, env) {
     console.error('contact form send failed', err);
     return back('failed');
   }
+}
+
+// Cloudflare Turnstile: confirms the form was filled in by a person, not a spam bot.
+async function humanCheck(token, request, env) {
+  if (!token) return false;
+  const body = new FormData();
+  body.append('secret', env.TURNSTILE_SECRET);
+  body.append('response', token);
+  body.append('remoteip', request.headers.get('CF-Connecting-IP') ?? '');
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
+  const outcome = await res.json();
+  return outcome.success === true;
 }

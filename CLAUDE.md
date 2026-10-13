@@ -10,13 +10,13 @@ Artist website for Audrey O'Neil (ceramic artist). **Astro** static site (no UI 
 
 ## Email
 - Audrey's inbox me@audreyoneil.com is **Google Workspace** (Google MX on the apex) — never touch apex MX/SPF.
-- Contact form sends via Cloudflare Email Service from `contact@mail.audreyoneil.com` (sending enabled on the `mail.` subdomain only), reply-to = the visitor. Code: `worker/index.js`. Spam guard: hidden honeypot field; add Turnstile if spam shows up.
+- Contact form sends via Cloudflare Email Service from `contact@mail.audreyoneil.com` (sending enabled on the `mail.` subdomain only), reply-to = the visitor. Code: `worker/index.js`. Spam guard: Cloudflare Turnstile (widget "audreyoneil.com contact form", sitekey in contact.astro, secret = worker secret TURNSTILE_SECRET; `.dev.vars` holds the always-pass test secret) + hidden honeypot field.
 
 ## Where things live (what Audrey will ask to change)
 - `src/site.js` – name, tagline, email, Instagram link.
 - `src/content/home/` – pictures on the home page. `src/content/portfolio/` – portfolio pictures. Just drop image files in (jpg/png/webp, any size — Astro optimises them). File name = caption (`02-blue-moon-vase.jpg` → "Blue moon vase"; leading number sets order).
 - `src/content/bio.md` – biography text.
-- `src/styles.css` – colours (top of file) and fonts. Background = logo charcoal `#222`.
+- `src/styles.css` – colours (top of file) and fonts. Background = logo charcoal `#222`, accent = hot pink. Header/menu font = Barlow Condensed (closest free match to the name lettering in the logo, which is outlines, not a font).
 - `src/layouts/Base.astro` – top menu + footer (Instagram + email) on every page.
 - `src/pages/` – one file per page (index, portfolio, biography, contact). New page = new file + add to the `pages` list in Base.astro.
 - `src/assets/logo.svg` – logo, recoloured light for the dark background (original was greys #31363D/#6D6E71).

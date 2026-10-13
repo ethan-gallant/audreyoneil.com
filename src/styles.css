@@ -4,7 +4,8 @@
   --surface: #2b2b2b;
   --text: #e9e4dc;
   --muted: #a9a49c;
-  --accent: #f5a961;       /* warm peach from the old email button */
+  --accent: #ff4fa3;       /* hot pink — buttons and highlights */
+  --logo-font: 'Barlow Condensed', 'DIN Condensed', sans-serif; /* closest match to the name in the logo */
   --heading-font: 'Cormorant Garamond', Georgia, serif;
   --body-font: 'Jost', system-ui, sans-serif;
 }
@@ -33,10 +34,11 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 1.5rem; }
   padding: 1.25rem clamp(1rem, 4vw, 3rem);
   border-bottom: 1px solid #333;
 }
-.brand { font-family: var(--heading-font); font-size: 1.5rem; text-decoration: none; letter-spacing: .04em; }
+.brand { font-family: var(--logo-font); font-weight: 300; font-size: 1.6rem; text-transform: uppercase; text-decoration: none; letter-spacing: .06em; }
 .site-header nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
 .site-header nav a {
-  text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem;
+  font-family: var(--logo-font); font-size: 1.05rem;
+  text-decoration: none; text-transform: uppercase; letter-spacing: .12em;
   color: var(--muted); padding: .25rem 0; border-bottom: 1px solid transparent;
 }
 .site-header nav a:hover, .site-header nav a[aria-current] { color: var(--text); border-color: var(--accent); }
