@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { Content } from '../my-site/bio.md';
-import photo from '../my-site/home/audrey.webp';
+import photo from '../my-site/me.webp';
 ---
 <Base title="Biography">
   <h1>Biography</h1>
@@ -13,5 +13,5 @@ import photo from '../my-site/home/audrey.webp';
 
 <style>
   .bio { max-width: 42rem; font-size: 1.1rem; }
-  .me { width: 100%; max-width: 42rem; border-radius: 4px; margin: 1rem 0 2rem; }
+  :global(.me) { width: 100%; max-width: 42rem; border-radius: 4px; margin: 1rem 0 2rem; }
 </style>

@@ -11,9 +11,11 @@ import { homeImages } from '../images.js';
     <a class="button" href={site.instagram} target="_blank" rel="noopener">Follow on Instagram {site.instagramHandle}</a>
   </section>
 
-  <section class="home-images">
+  <section class="slideshow" aria-label="Recent work">
     {homeImages.length
-      ? homeImages.map((img) => <Image src={img.src} alt={img.caption} widths={[480, 900, 1400]} sizes="(max-width: 700px) 100vw, 50vw" />)
+      ? homeImages.map((img, i) => (
+          <Image src={img.src} alt={img.caption || "Artwork by Audrey O'Neil"} widths={[480, 900, 1400]} sizes="(max-width: 700px) 100vw, 600px" class={i === 0 ? 'shown' : ''} loading={i === 0 ? 'eager' : 'lazy'} />
+        ))
       : <p class="empty">Pictures coming soon.</p>}
   </section>
 </Base>
@@ -21,6 +23,21 @@ import { homeImages } from '../images.js';
 <style>
   .intro { display: flex; flex-direction: column; align-items: center; gap: 2rem; text-align: center; margin-bottom: 3rem; }
   .logo { width: min(560px, 90%); }
-  .home-images { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.25rem; }
-  .home-images img { width: 100%; max-height: 80vh; object-fit: cover; border-radius: 4px; }
+  /* One picture at a time, fading to the next every 30 seconds */
+  .slideshow { position: relative; width: min(100%, 600px, calc(80vh * 3 / 4)); aspect-ratio: 3 / 4; margin: 0 auto; }
+  .slideshow :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; opacity: 0; transition: opacity 1.5s ease; }
+  .slideshow :global(img.shown) { opacity: 1; }
 </style>
+
+<script>
+  const SECONDS_PER_PICTURE = 30;
+  const slides = document.querySelectorAll('.slideshow img');
+  let current = 0;
+  if (slides.length > 1) {
+    setInterval(() => {
+      slides[current].classList.remove('shown');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('shown');
+    }, SECONDS_PER_PICTURE * 1000);
+  }
+</script>
