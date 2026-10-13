@@ -7,4 +7,6 @@ export const site = {
   instagramHandle: '@audreyoneilart',
   // Zoom in on a portfolio collection's cover picture (1 = normal, 1.3 = 30% closer).
   coverZoom: { 'solo-show': 1.12 },
+  // Which part of a cover picture to show when it's cropped to a square: 'top', 'center' or 'bottom'.
+  coverPosition: { '2023': 'top' },
 };
