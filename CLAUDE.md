@@ -18,7 +18,7 @@ Artist website for Audrey O'Neil (ceramic artist). **Astro** static site (no UI 
 - `src/my-site/bio.md` – biography text.
 - `src/styles.css` – colours (top of file) and fonts. Background = logo charcoal `#222`, accent = hot pink. All text uses Barlow Condensed (closest free match to the name lettering in the logo, which is outlines, not a font).
 - `src/layouts/Base.astro` – top menu + footer (Instagram + email) on every page.
-- `src/pages/` – one file per page (index, portfolio/, biography, contact). New page = new file + add to the `pages` list in Base.astro.
+- `src/pages/` – one file per page (index, portfolio/, shop, biography, contact). Shop is a "coming soon" placeholder; payment provider not chosen yet (ask Audrey: Etsy/Stripe/etc., unique vs multiples, currency). New page = new file + add to the `pages` list in Base.astro.
 - `src/assets/logo.svg` – logo, recoloured light for the dark background (original was greys #31363D/#6D6E71).
 
 ## Working with Audrey (artist, not a developer)
