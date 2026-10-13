@@ -69,3 +69,9 @@ main { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding: clamp(2
 .gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
 .gallery figcaption { color: var(--muted); font-size: .9rem; margin-top: .4rem; }
 .empty { color: var(--muted); font-style: italic; }
+
+/* Phones: keep all menu links on one line across the screen */
+@media (max-width: 600px) {
+  .site-header nav { width: 100%; flex-wrap: nowrap; justify-content: space-between; gap: .5rem; }
+  .site-header nav a { font-size: clamp(.8rem, 3.8vw, 1rem); letter-spacing: .06em; white-space: nowrap; }
+}
