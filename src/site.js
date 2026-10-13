@@ -5,4 +5,6 @@ export const site = {
   email: 'me@audreyoneil.com',
   instagram: 'https://www.instagram.com/audreyoneilart/',
   instagramHandle: '@audreyoneilart',
+  // Zoom in on a portfolio collection's cover picture (1 = normal, 1.3 = 30% closer).
+  coverZoom: { 'solo-show': 1.12 },
 };

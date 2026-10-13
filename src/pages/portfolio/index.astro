@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Gallery from '../../components/Gallery.astro';
 import { collections, looseImages } from '../../images.js';
+import { site } from '../../site.js';
 ---
 <Base title="Portfolio">
   <h1>Portfolio</h1>
@@ -11,7 +12,7 @@ import { collections, looseImages } from '../../images.js';
     <div class="collections">
       {collections.map((c) => (
         <a href={`/portfolio/${c.slug}`} class="collection">
-          <Image src={c.cover.src} alt="" widths={[400, 800]} sizes="(max-width: 600px) 100vw, 33vw" />
+          <div class="cover" style="overflow: hidden; border-radius: 4px;"><Image src={c.cover.src} alt="" widths={[400, 800]} sizes="(max-width: 600px) 100vw, 33vw" style={`transform: scale(${site.coverZoom?.[c.slug] ?? 1}); transform-origin: left center;`} /></div>
           <span class="name">{c.title}</span>
           <span class="count">{c.images.length} {c.images.length === 1 ? 'piece' : 'pieces'}</span>
         </a>
@@ -27,7 +28,7 @@ import { collections, looseImages } from '../../images.js';
 <style>
   .collections { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
   .collection { text-decoration: none; display: grid; gap: .3rem; }
-  .collection img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; transition: opacity .2s; }
+  .collection img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; transition: opacity .2s; }
   .collection:hover img { opacity: .8; }
   .name { font-size: 1.4rem; text-transform: uppercase; letter-spacing: .06em; }
   .collection:hover .name { color: var(--accent); }
