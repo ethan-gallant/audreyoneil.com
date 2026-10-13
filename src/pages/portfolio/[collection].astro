@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import { collections } from '../../images.js';
+
+export function getStaticPaths() {
+  return collections.map((c) => ({ params: { collection: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+---
+<Base title={c.title}>
+  <a href="/portfolio" class="back">← All collections</a>
+  <h1>{c.title}</h1>
+  <Gallery images={c.images} />
+</Base>
+
+<style>
+  .back { color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+  .back:hover { color: var(--accent); }
+</style>

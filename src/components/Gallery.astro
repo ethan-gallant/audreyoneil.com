@@ -1,0 +1,37 @@
+---
+// A grid of pictures; click one to see it big.
+import { Image } from 'astro:assets';
+const { images } = Astro.props;
+---
+<div class="gallery">
+  {images.map((img) => (
+    <figure>
+      <a href={img.src.src} class="zoom">
+        <Image src={img.src} alt={img.caption} widths={[400, 800]} sizes="(max-width: 600px) 100vw, 33vw" />
+      </a>
+      <figcaption>{img.caption}</figcaption>
+    </figure>
+  ))}
+</div>
+
+<dialog class="viewer"><img alt="" /><button class="button" autofocus>Close</button></dialog>
+
+<style>
+  dialog { border: 0; padding: 1rem; background: #111; max-width: 95vw; max-height: 95vh; text-align: center; }
+  dialog::backdrop { background: rgba(0, 0, 0, .85); }
+  dialog img { max-height: 80vh; width: auto; margin: 0 auto 1rem; }
+</style>
+
+<script>
+  const viewer = document.querySelector('.viewer');
+  const big = viewer.querySelector('img');
+  document.querySelectorAll('.zoom').forEach((link) =>
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      big.src = link.href;
+      big.alt = link.querySelector('img').alt;
+      viewer.showModal();
+    })
+  );
+  viewer.addEventListener('click', () => viewer.close());
+</script>

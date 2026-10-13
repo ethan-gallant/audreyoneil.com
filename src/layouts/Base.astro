@@ -9,7 +9,7 @@ const pages = [
   { href: '/biography', label: 'Biography' },
   { href: '/contact', label: 'Contact' },
 ];
-const here = Astro.url.pathname.replace(/\/$/, '') || '/';
+const here = '/' + (Astro.url.pathname.split('/')[1] ?? '');
 ---
 <!doctype html>
 <html lang="en">
